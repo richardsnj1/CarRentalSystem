@@ -1,26 +1,40 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template lang="pug">
+div
+  the-navbar
+  h1 HALOO
+  h1 HALOO
+  h1 HALOO
+  h1 HALOO
+  p {{ testing }}
+  p {{ yaudalah }}
+  //- <div class="red"><h1>aa</h1></div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import { computed } from 'vue';
+// import HelloWorld from './components/HelloWorld.vue'
+import TheNavbar from "./Base/TheNavbar.vue";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
+    // HomePage,
+    TheNavbar,
+  },
+  data(){
+    return{
+      testing: "BABI ENAK",
+      testing2 : "TAPI HARAM"
+    }
+  },
+  computed: {
+    yaudalah() {
+      return this.testing + " " + this.testing2;
+    },
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
