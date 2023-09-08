@@ -2,7 +2,7 @@
 //- the-schedule
 link(href="https://fonts.googleapis.com/css?family=Lexend" rel="stylesheet")
 header#header.fixed-top(:class="{active: isActive}")
-  .container.d-flex.align-items-center
+  .container
     a.burger-toggle(href="#" :class="{activated: isActive}" @click="activate")
       span.bar1 
       span.bar2
@@ -13,24 +13,22 @@ header#header.fixed-top(:class="{active: isActive}")
       .nav-menu(:class="{active: isActive}")
         ul
           li(@click="setActive(0)" :class="{activated: isActiveArr[0]}")
-            router-link(to="/home") Home 
+            router-link(to="/home") Promos  
           li(@click="setActive(1)" :class="{activated: isActiveArr[1]}")
-            router-link(to="/schedule") Schedule
+            router-link(to="/schedule") Booking
           li(@click="setActive(2)" :class="{activated: isActiveArr[2]}") 
-            router-link(to="/recommendations") Recommendations
+            router-link(to="/recommendations") Contact
           li(@click="setActive(3)" :class="{activated: isActiveArr[3]}") 
-            router-link(to="/wardrobe") Wardrobe
+            router-link(to="/wardrobe") About Us
           li(@click="setActive(4)" :class="{activated: isActiveArr[4]}") 
-            router-link(to="/aboutus") About Us 
-          li(@click="setActive(5)" :class="{activated: isActiveArr[5]}") 
-            router-link(to="/contact") Contact 
+            router-link(to="/aboutus") Register 
 </template>
 
 <script>
 export default {
   data() {
     return {
-      isActiveArr: [true, false, false, false, false, false],
+      isActiveArr: [true, false, false, false, false],
       isActive: false,
       width: 0,
     };
@@ -43,7 +41,7 @@ export default {
     //   this.isActive = false;
     // },
     setActive(index) {
-      this.isActiveArr = [false, false, false, false, false, false];
+      this.isActiveArr = [false, false, false, false, false];
       this.isActiveArr[index] = true;
       this.isActive = false;
       this.$emit('transitionChecker', this.isActiveArr);
@@ -52,7 +50,7 @@ export default {
       this.isActive = !this.isActive;
     },
     deactivate() {
-      this.isActiveArr = [false, false, false, false, false, false];
+      this.isActiveArr = [false, false, false, false, false];
       this.isActive = false;
     },
     resizes() {
@@ -112,6 +110,7 @@ export default {
   background-color: #EBE8E3;
   display: flex;
   /* box-shadow: 0px 2px 3px #484848; */
+  height: 10%;
   justify-content: space-between;
   align-items: center;
   /* padding: 5px; */
@@ -165,7 +164,7 @@ h6 {
 .nav-menu > ul > li {
   position: relative;
   white-space: nowrap;
-  padding: 15px 0 15px 22px;
+  padding: 25px 0 15px 50px;
 }
 
 .nav-menu > ul > li a::before {
@@ -199,7 +198,7 @@ h6 {
   position: relative;
   color: #000;
   transition: 0.3s;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   padding: 0 4px;
 }
